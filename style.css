@@ -281,6 +281,19 @@ body {
   font-size: 1.25rem;
   font-weight: 700;
   color: var(--primary-color);
+  margin-bottom: 1rem;
+}
+
+.service-buy-btn {
+  width: 100%;
+  margin-top: auto;
+  font-size: 0.9rem;
+  padding: 10px 16px;
+}
+
+.service-card {
+  display: flex;
+  flex-direction: column;
 }
 
 /* Success Stories */
@@ -482,6 +495,189 @@ body {
   overflow-y: auto;
   position: relative;
   box-shadow: var(--shadow-lg);
+}
+
+.checkout-modal {
+  max-width: 600px;
+  max-height: 90vh;
+}
+
+.checkout-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid var(--border-color);
+}
+
+.secure-badge {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--accent-color);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.secure-icon {
+  font-size: 1rem;
+}
+
+.selected-service {
+  background: var(--bg-secondary);
+  padding: 1.5rem;
+  border-radius: 12px;
+  margin-bottom: 2rem;
+  border-left: 4px solid var(--primary-color);
+}
+
+.service-summary h4 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  color: var(--text-primary);
+}
+
+.service-price-large {
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--primary-color);
+}
+
+.price-period {
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+}
+
+.payment-methods {
+  margin-bottom: 2rem;
+}
+
+.payment-methods h4 {
+  margin-bottom: 1rem;
+  color: var(--text-primary);
+}
+
+.payment-options {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.payment-option {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem;
+  background: white;
+  border: 2px solid var(--border-color);
+  border-radius: 8px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.payment-option:hover {
+  border-color: var(--primary-color);
+  background: rgba(99, 102, 241, 0.05);
+}
+
+.payment-icon {
+  font-size: 1.25rem;
+}
+
+.checkout-benefits {
+  margin-bottom: 2rem;
+}
+
+.checkout-benefits h4 {
+  margin-bottom: 1rem;
+  color: var(--text-primary);
+}
+
+.checkout-benefits ul {
+  list-style: none;
+  padding: 0;
+}
+
+.checkout-benefits li {
+  padding: 0.5rem 0;
+  padding-left: 1.5rem;
+  position: relative;
+  color: var(--text-secondary);
+}
+
+.checkout-benefits li::before {
+  content: '✅';
+  position: absolute;
+  left: 0;
+  top: 0.5rem;
+}
+
+.checkout-guarantee {
+  margin-bottom: 2rem;
+}
+
+.guarantee-badge {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.1), rgba(16, 185, 129, 0.05));
+  padding: 1.5rem;
+  border-radius: 12px;
+  border: 2px solid var(--accent-color);
+}
+
+.guarantee-icon {
+  font-size: 2rem;
+}
+
+.guarantee-text strong {
+  color: var(--accent-color);
+  font-size: 1.1rem;
+}
+
+.guarantee-text p {
+  margin: 0;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+.checkout-btn {
+  width: 100%;
+  padding: 1rem 2rem;
+  font-size: 1.1rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+  background: var(--gradient);
+  border: none;
+  color: white;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.checkout-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+.btn-icon {
+  font-size: 1.2rem;
+}
+
+.checkout-footer {
+  text-align: center;
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+  line-height: 1.4;
 }
 
 .modal-close {

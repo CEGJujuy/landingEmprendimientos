@@ -46,24 +46,36 @@ const servicios = `
           <h3>Consultoría Estratégica</h3>
           <p>Análisis profundo de tu idea de negocio y desarrollo de estrategias personalizadas.</p>
           <div class="service-price">$299/mes</div>
+          <button class="btn btn-primary service-buy-btn" onclick="redirectToHotmart('consultoria', event)">
+            Comprar Ahora
+          </button>
         </div>
         <div class="service-card" onclick="selectService('desarrollo')">
           <div class="service-icon">🛠️</div>
           <h3>Desarrollo de Producto</h3>
           <p>Creamos tu MVP y te ayudamos a iterar hasta encontrar el product-market fit.</p>
           <div class="service-price">$599/mes</div>
+          <button class="btn btn-primary service-buy-btn" onclick="redirectToHotmart('desarrollo', event)">
+            Comprar Ahora
+          </button>
         </div>
         <div class="service-card" onclick="selectService('marketing')">
           <div class="service-icon">📈</div>
           <h3>Marketing Digital</h3>
           <p>Estrategias de marketing digital para hacer crecer tu base de clientes.</p>
           <div class="service-price">$399/mes</div>
+          <button class="btn btn-primary service-buy-btn" onclick="redirectToHotmart('marketing', event)">
+            Comprar Ahora
+          </button>
         </div>
         <div class="service-card" onclick="selectService('financiamiento')">
           <div class="service-icon">💰</div>
           <h3>Financiamiento</h3>
           <p>Te conectamos con inversores y te ayudamos a preparar tu pitch deck.</p>
           <div class="service-price">$199/mes</div>
+          <button class="btn btn-primary service-buy-btn" onclick="redirectToHotmart('financiamiento', event)">
+            Comprar Ahora
+          </button>
         </div>
       </div>
     </div>
@@ -221,6 +233,73 @@ const modal = `
       </div>
     </div>
   </div>
+
+  <div id="checkout-modal" class="modal">
+    <div class="modal-content checkout-modal">
+      <span class="modal-close" onclick="closeCheckoutModal()">&times;</span>
+      <div id="checkout-body">
+        <div class="checkout-header">
+          <h3>🛒 Finalizar Compra</h3>
+          <div class="secure-badge">
+            <span class="secure-icon">🔒</span>
+            <span>Pago 100% Seguro</span>
+          </div>
+        </div>
+        
+        <div id="selected-service" class="selected-service">
+          <!-- Service details will be populated here -->
+        </div>
+        
+        <div class="payment-methods">
+          <h4>Métodos de Pago Disponibles</h4>
+          <div class="payment-options">
+            <div class="payment-option">
+              <span class="payment-icon">💳</span>
+              <span>Tarjetas de Crédito/Débito</span>
+            </div>
+            <div class="payment-option">
+              <span class="payment-icon">🏦</span>
+              <span>Transferencia Bancaria</span>
+            </div>
+            <div class="payment-option">
+              <span class="payment-icon">📱</span>
+              <span>PIX (Brasil)</span>
+            </div>
+            <div class="payment-option">
+              <span class="payment-icon">💰</span>
+              <span>PayPal</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="checkout-benefits">
+          <h4>✅ Lo que incluye tu compra:</h4>
+          <ul id="service-benefits">
+            <!-- Benefits will be populated here -->
+          </ul>
+        </div>
+        
+        <div class="checkout-guarantee">
+          <div class="guarantee-badge">
+            <span class="guarantee-icon">🛡️</span>
+            <div class="guarantee-text">
+              <strong>Garantía de 30 días</strong>
+              <p>Si no estás satisfecho, te devolvemos tu dinero</p>
+            </div>
+          </div>
+        </div>
+        
+        <button id="hotmart-redirect-btn" class="btn btn-primary checkout-btn">
+          Proceder al Pago Seguro
+          <span class="btn-icon">🚀</span>
+        </button>
+        
+        <div class="checkout-footer">
+          <p>Al hacer clic en "Proceder al Pago", serás redirigido a Hotmart para completar tu compra de forma segura.</p>
+        </div>
+      </div>
+    </div>
+  </div>
 `;
 
 // Renderizar la página completa
@@ -333,6 +412,119 @@ window.openSocial = (platform) => {
   
   console.log(`🔗 Abriendo ${platform}: ${urls[platform]}`);
   showNotification(`Redirigiendo a ${platform}...`);
+};
+
+// Función para redirigir a Hotmart
+window.redirectToHotmart = (service, event) => {
+  event.stopPropagation(); // Evitar que se ejecute selectService
+  
+  // Abrir modal de checkout
+  openCheckoutModal(service);
+  
+  console.log(`💳 Iniciando proceso de pago para: ${service}`);
+};
+
+// Función para abrir modal de checkout
+window.openCheckoutModal = (service) => {
+  const services = {
+    consultoria: {
+      name: 'Consultoría Estratégica',
+      price: '$299',
+      period: '/mes',
+      hotmartUrl: 'https://pay.hotmart.com/consultoria-estrategica-creactivo',
+      benefits: [
+        'Análisis completo de tu modelo de negocio',
+        'Estrategia personalizada de crecimiento',
+        'Sesiones 1:1 con expertos',
+        'Plan de acción detallado',
+        'Soporte por WhatsApp 24/7'
+      ]
+    },
+    desarrollo: {
+      name: 'Desarrollo de Producto',
+      price: '$599',
+      period: '/mes',
+      hotmartUrl: 'https://pay.hotmart.com/desarrollo-producto-creactivo',
+      benefits: [
+        'Desarrollo de MVP completo',
+        'Validación de mercado',
+        'Iteraciones basadas en feedback',
+        'Documentación técnica',
+        'Soporte técnico especializado'
+      ]
+    },
+    marketing: {
+      name: 'Marketing Digital',
+      price: '$399',
+      period: '/mes',
+      hotmartUrl: 'https://pay.hotmart.com/marketing-digital-creactivo',
+      benefits: [
+        'Estrategia de marketing completa',
+        'Gestión de redes sociales',
+        'Campañas publicitarias optimizadas',
+        'Análisis de métricas y ROI',
+        'Creación de contenido profesional'
+      ]
+    },
+    financiamiento: {
+      name: 'Financiamiento',
+      price: '$199',
+      period: '/mes',
+      hotmartUrl: 'https://pay.hotmart.com/financiamiento-creactivo',
+      benefits: [
+        'Preparación de pitch deck profesional',
+        'Conexión con red de inversores',
+        'Asesoría en valoración de empresa',
+        'Simulacros de presentación',
+        'Seguimiento post-presentación'
+      ]
+    }
+  };
+  
+  const selectedService = services[service];
+  
+  // Actualizar contenido del modal
+  document.getElementById('selected-service').innerHTML = `
+    <div class="service-summary">
+      <h4>${selectedService.name}</h4>
+      <div class="service-price-large">
+        ${selectedService.price}<span class="price-period">${selectedService.period}</span>
+      </div>
+    </div>
+  `;
+  
+  // Actualizar beneficios
+  const benefitsList = document.getElementById('service-benefits');
+  benefitsList.innerHTML = selectedService.benefits
+    .map(benefit => `<li>${benefit}</li>`)
+    .join('');
+  
+  // Configurar botón de Hotmart
+  const hotmartBtn = document.getElementById('hotmart-redirect-btn');
+  hotmartBtn.onclick = () => {
+    // Simular redirección a Hotmart (en producción sería la URL real)
+    showNotification('Redirigiendo a Hotmart para completar el pago...');
+    console.log(`🔗 Redirigiendo a Hotmart: ${selectedService.hotmartUrl}`);
+    
+    // En producción, descomenta la siguiente línea:
+    // window.open(selectedService.hotmartUrl, '_blank');
+    
+    // Simular proceso de pago
+    setTimeout(() => {
+      showNotification('¡Pago procesado exitosamente! Recibirás un email de confirmación.');
+      closeCheckoutModal();
+    }, 2000);
+  };
+  
+  // Mostrar modal
+  document.getElementById('checkout-modal').style.display = 'flex';
+  console.log(`🛒 Modal de checkout abierto para: ${selectedService.name}`);
+};
+
+// Función para cerrar modal de checkout
+window.closeCheckoutModal = () => {
+  document.getElementById('checkout-modal').style.display = 'none';
+  console.log('❌ Modal de checkout cerrado');
 };
 
 // Función para mostrar notificaciones
