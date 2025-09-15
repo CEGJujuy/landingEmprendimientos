@@ -5,7 +5,7 @@ const header = `
   <header class="header">
     <nav class="nav">
       <div class="nav-brand">
-        <h1>🚀 EmprendeMax</h1>
+        <img src="/public/logo sin fondo copy.png" alt="CREACTIVO Digital Agency" class="logo" />
       </div>
       <ul class="nav-menu">
         <li><a href="#inicio">Inicio</a></li>
@@ -124,15 +124,15 @@ const contacto = `
           <h3>Contáctanos</h3>
           <div class="contact-item">
             <span class="contact-icon">📧</span>
-            <span>info@emprendemax.com</span>
+            <span>creactivostudio.geva@gmail.com</span>
           </div>
           <div class="contact-item">
             <span class="contact-icon">📱</span>
-            <span>+1 (555) 123-4567</span>
+            <span>+54 3883 153-549</span>
           </div>
           <div class="contact-item">
             <span class="contact-icon">📍</span>
-            <span>Silicon Valley, CA</span>
+            <span>San Salvador de Jujuy, Argentina</span>
           </div>
         </div>
         <form class="contact-form" onsubmit="handleSubmit(event)">
@@ -167,8 +167,8 @@ const footer = `
     <div class="container">
       <div class="footer-content">
         <div class="footer-section">
-          <h3>🚀 EmprendeMax</h3>
-          <p>Transformando ideas en negocios exitosos desde 2020.</p>
+          <img src="/public/logo sin fondo copy.png" alt="CREACTIVO Digital Agency" class="footer-logo" />
+          <p>Transformando ideas en negocios exitosos desde San Salvador de Jujuy, Argentina.</p>
         </div>
         <div class="footer-section">
           <h4>Servicios</h4>
@@ -189,7 +189,7 @@ const footer = `
         </div>
       </div>
       <div class="footer-bottom">
-        <p>&copy; 2024 EmprendeMax. Todos los derechos reservados.</p>
+        <p>&copy; 2024 CREACTIVO Digital Agency. Todos los derechos reservados.</p>
       </div>
     </div>
   </footer>
@@ -326,9 +326,9 @@ window.handleSubmit = (event) => {
 
 window.openSocial = (platform) => {
   const urls = {
-    twitter: 'https://twitter.com/emprendemax',
-    linkedin: 'https://linkedin.com/company/emprendemax',
-    instagram: 'https://instagram.com/emprendemax'
+    twitter: 'https://twitter.com/creactivostudio',
+    linkedin: 'https://linkedin.com/company/creactivostudio',
+    instagram: 'https://instagram.com/creactivostudio'
   };
   
   console.log(`🔗 Abriendo ${platform}: ${urls[platform]}`);
@@ -382,5 +382,5 @@ window.addEventListener('scroll', () => {
   }
 });
 
-console.log('🚀 EmprendeMax - Página cargada exitosamente!');
+console.log('🚀 CREACTIVO Digital Agency - Página cargada exitosamente!');
 console.log('📊 Funcionalidades disponibles: Navegación, Formularios, Modales, Demos interactivos');
